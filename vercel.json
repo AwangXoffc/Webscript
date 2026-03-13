@@ -1,0 +1,28 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/ai", "destination": "/pages/ai.html" },
+    { "source": "/sc", "destination": "/pages/sc.html" },
+    { "source": "/tools", "destination": "/pages/tools.html" },
+    { "source": "/help", "destination": "/pages/help.html" },
+    { "source": "/maintenance", "destination": "/pages/maintenance.html" },
+    { "source": "/docs", "destination": "/pages/docs.html" }
+  ],
+  "headers": [
+    {
+      "source": "/config/config.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    }
+  ]
+}

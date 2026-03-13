@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pusat Bantuan - AwangXoffc ID</title>
+
+    <meta name="description" content="Pusat bantuan dan pelaporan bug AwangXoffc ID. Laporkan masalah atau request script bot di sini.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awangjs.web.id/pages/help.html">
+    <meta property="og:title" content="Pusat Bantuan - AwangXoffc ID">
+    <meta property="og:description" content="Pusat bantuan dan pelaporan bug AwangXoffc ID. Laporkan masalah atau request script bot di sini.">
+    <meta property="og:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pusat Bantuan - AwangXoffc ID">
+    <meta name="twitter:description" content="Pusat bantuan dan pelaporan bug AwangXoffc ID. Laporkan masalah atau request script bot di sini.">
+    <meta name="twitter:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="../config/config.js?"></script>
+
+    <script>
+        if (typeof CONFIG !== 'undefined' && CONFIG.maintenanceConfig && CONFIG.maintenanceConfig.active) {
+            if (CONFIG.maintenanceConfig.pages && CONFIG.maintenanceConfig.pages.help) {
+                window.location.href = "maintenance.html";
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stylehelp.css">
+
+    <style>
+        .rotate-180 { transform: rotate(180deg); }
+        body { display: flex; flex-direction: column; align-items: center; }
+        .help-container { width: 100%; max-width: 600px; min-height: 100vh; position: relative; display: flex; flex-direction: column; }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-200 font-['Plus_Jakarta_Sans'] antialiased">
+
+    <div id="customBg" class="main-bg-fixed"></div>
+    <div class="main-bg-overlay"></div>
+
+    <div class="help-container">
+
+        <nav class="fixed top-0 left-0 w-full z-50 transition-all" style="max-width: 600px; left: 50%; transform: translateX(-50%);">
+            <div class="bg-[#020617]/90 backdrop-blur-md border-b border-white/5 h-16 px-4 flex justify-between items-center shadow-lg">
+                <button onclick="toggleMenu(); playSfx('pop')" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-slate-300 hover:bg-white/10 active:scale-95 transition-all border border-white/5">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="font-bold text-sm tracking-wider text-white uppercase flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> HELP CENTER
+                </div>
+                <a href="../index.html" onclick="playSfx('pop')" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-slate-300 hover:bg-white/10 active:scale-95 transition-all border border-white/5">
+                    <i class="fas fa-home"></i>
+                </a>
+            </div>
+        </nav>
+
+        <aside id="sidebar" class="fixed top-0 left-0 h-full w-72 bg-[#020617] border-r border-white/10 z-[60] transform -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+            <div class="p-6 border-b border-white/5 text-center bg-[#0f172a]">
+                <span class="text-xs font-bold text-blue-400 tracking-[0.2em] uppercase">AWANG OFFICIAL</span>
+            </div>
+            <div id="sidebarContent" class="py-4 px-2 overflow-y-auto custom-scrollbar flex-1 flex flex-col gap-2"></div>
+        </aside>
+
+        <main class="flex-grow w-full pt-24 pb-10 px-4 relative z-10">
+            <div class="w-full space-y-8">
+
+                <div>
+                    <div class="text-center mb-6 animate-fade-in-up">
+                        <h1 class="text-2xl font-bold text-white mb-1">Pusat Bantuan</h1>
+                        <p class="text-xs text-slate-400">Ada masalah? Langsung lapor aja di sini bro.</p>
+                    </div>
+
+                    <div class="bg-[#0f172a] border border-white/10 rounded-2xl p-6 shadow-2xl relative overflow-hidden animate-fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
+
+                        <div class="mb-5">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 block ml-1">Kategori</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button onclick="selectCategory('bug')" id="cat-bug" class="cat-btn active"><i class="fas fa-bug mb-1"></i> Bug</button>
+                                <button onclick="selectCategory('req')" id="cat-req" class="cat-btn"><i class="fas fa-code mb-1"></i> Request</button>
+                                <button onclick="selectCategory('other')" id="cat-other" class="cat-btn"><i class="fas fa-comment mb-1"></i> Lain</button>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 block ml-1">Nama Lo</label>
+                            <input type="text" id="ticketName" class="w-full bg-[#020617] text-white px-4 py-3.5 rounded-xl border border-white/10 focus:border-blue-500 outline-none transition-all placeholder-slate-700 text-sm font-semibold" placeholder="Isi nama panggilan...">
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 block ml-1">Keluhan / Pesan</label>
+                            <textarea id="ticketMsg" class="w-full bg-[#020617] text-white px-4 py-3.5 rounded-xl border border-white/10 focus:border-blue-500 outline-none transition-all placeholder-slate-700 text-sm font-medium min-h-[120px] resize-none" placeholder="Tulis yang jelas ya bang..."></textarea>
+                        </div>
+
+                        <button onclick="submitTicket()" id="submitTicketBtn" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-all active:scale-95 flex items-center justify-center gap-2">
+                            <span>GAS KIRIM</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-px bg-white/10 flex-1"></div>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">TENTANG GUA</span>
+                        <div class="h-px bg-white/10 flex-1"></div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-[#0f172a]/80 border border-white/5 rounded-xl overflow-hidden transition-all hover:border-blue-500/30">
+                            <button onclick="toggleDesc('desc1', this)" class="w-full flex items-center gap-4 p-4 text-left hover:bg-white/5 transition-all group">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-robot text-lg"></i>
+                                </div>
+                                <h3 class="text-sm font-bold text-white flex-1">Gudang Script Paling Gacor</h3>
+                                <i class="fas fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                            </button>
+                            <div id="desc1" class="hidden px-4 pb-4 pl-[4.5rem]">
+                                <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-white/5">
+                                    Tempat download script bot WhatsApp gratisan tapi rasa premium. Gak pake bayar-bayar club, tinggal comot, pasang, jalan!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#0f172a]/80 border border-white/5 rounded-xl overflow-hidden transition-all hover:border-blue-500/30">
+                            <button onclick="toggleDesc('desc2', this)" class="w-full flex items-center gap-4 p-4 text-left hover:bg-white/5 transition-all group">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt text-lg"></i>
+                                </div>
+                                <h3 class="text-sm font-bold text-white flex-1">Download Sat-Set</h3>
+                                <i class="fas fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                            </button>
+                            <div id="desc2" class="hidden px-4 pb-4 pl-[4.5rem]">
+                                <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-white/5">
+                                    Link download kita usahain gak ribet. Selesaikan misi unlock bentar (buat support admin beli kopi), terus langsung gas download file-nya.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#0f172a]/80 border border-white/5 rounded-xl overflow-hidden transition-all hover:border-blue-500/30">
+                            <button onclick="toggleDesc('desc3', this)" class="w-full flex items-center gap-4 p-4 text-left hover:bg-white/5 transition-all group">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-shield-alt text-lg"></i>
+                                </div>
+                                <h3 class="text-sm font-bold text-white flex-1">Privasi Aman Bos</h3>
+                                <i class="fas fa-chevron-down text-slate-500 text-xs transition-transform duration-300"></i>
+                            </button>
+                            <div id="desc3" class="hidden px-4 pb-4 pl-[4.5rem]">
+                                <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-white/5">
+                                    Data lu aman di sini. Kita cuma butuh statistik view doang, gak bakal nyolong data aneh-aneh. Santai aja!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8 pb-4 opacity-50">
+                        <p class="text-[10px] font-bold tracking-widest text-slate-500">
+                            © 2026 AWANG OFFICIAL SYSTEM
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="overlay fixed inset-0 bg-black/80 z-[55] hidden backdrop-blur-sm" id="overlay" onclick="toggleMenu()"></div>
+
+    <div id="notifModal" class="fixed inset-0 z-[3000] flex items-center justify-center p-6 bg-black/80 hidden backdrop-blur-sm">
+        <div class="bg-[#0f172a] w-full max-w-sm rounded-2xl border border-[#334155] p-5 shadow-2xl">
+            <h3 class="text-white font-black text-xs uppercase mb-3 border-l-4 border-[#60a5fa] pl-3">Notifikasi</h3>
+            <div id="notifContent" class="text-xs text-gray-400 leading-relaxed mb-4"></div>
+            <button onclick="toggleNotifModal()" class="w-full py-3 bg-[#1e293b] hover:bg-[#334155] border border-[#334155] rounded-xl text-[#60a5fa] text-[10px] font-black uppercase tracking-widest transition-all">Tutup</button>
+        </div>
+    </div>
+
+    <div id="footerPageModal" class="f-modal">
+        <div class="f-modal-content">
+            <h2 id="fPageTitle" class="pixel-font text-[#60a5fa] text-xs mb-6 uppercase">Title</h2>
+            <div id="fPageContent" class="text-[#94a3b8] text-xs leading-relaxed max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar"></div>
+            <button onclick="closeFooterModal(); playSfx('pop')" class="w-full mt-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest text-white hover:bg-white/10 transition-colors btn-3d">Tutup</button>
+        </div>
+    </div>
+
+    <script src="../js/utils.js?"></script>
+    <script type="module" src="../js/awang1.js"></script>
+    <script type="module" src="../js/awang2.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="module" src="../js/script_help.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgEl = document.getElementById('customBg');
+            if(bgEl) {
+                bgEl.style.backgroundImage = `url('../assets/images/background.jpg')`;
+            }
+        });
+
+        function toggleDesc(id, btn) {
+            const content = document.getElementById(id);
+            const arrow = btn.querySelector('.fa-chevron-down');
+
+            if(content) content.classList.toggle('hidden');
+            if(arrow) arrow.classList.toggle('rotate-180');
+
+            if(typeof playSfx === 'function') playSfx('pop');
+        }
+    </script>
+</body>
+</html>

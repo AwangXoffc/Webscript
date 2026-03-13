@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Maintenance - AwangXoffc</title>
+
+    <meta name="description" content="Sistem sedang dalam perbaikan berkala untuk meningkatkan performa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awangjs.web.id/pages/maintenance.html">
+    <meta property="og:title" content="System Maintenance - AwangXoffc">
+    <meta property="og:description" content="Sistem sedang dalam perbaikan berkala untuk meningkatkan performa.">
+    <meta property="og:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="System Maintenance - AwangXoffc">
+    <meta name="twitter:description" content="Sistem sedang dalam perbaikan berkala untuk meningkatkan performa.">
+    <meta name="twitter:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="../config/config.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --border-color: #1e293b;
+            --accent: #38bdf8;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Space Grotesk', sans-serif;
+            color: #f8fafc;
+            background-image:
+                linear-gradient(to right, #0f172a 1px, transparent 1px),
+                linear-gradient(to bottom, #0f172a 1px, transparent 1px);
+            background-size: 40px 40px;
+            overflow: hidden;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .engine-rotate {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #ef4444;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .glass-panel {
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            background: rgba(15, 23, 42, 0.5);
+            color: var(--text-dim);
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="relative w-full max-w-lg">
+        <div class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-slate-700 z-10"></div>
+        <div class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-slate-700 z-10"></div>
+
+        <div class="glass-panel p-8 md:p-12 relative overflow-hidden rounded-lg">
+
+            <div class="flex items-center mb-10">
+                <span class="status-dot"></span>
+                <span class="mono text-[10px] tracking-[0.3em] text-slate-500 uppercase font-bold">SYSTEM LOCKED</span>
+            </div>
+
+            <div class="mb-8 flex justify-start">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-500 blur-xl opacity-20"></div>
+                    <i class="fas fa-server text-5xl text-slate-700 relative z-10"></i>
+                    <i class="fas fa-tools text-2xl text-[#38bdf8] absolute -bottom-2 -right-2 z-20 animate-bounce"></i>
+                </div>
+            </div>
+
+            <h1 id="maintTitle" class="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white leading-tight">
+                MAINTENANCE MODE
+            </h1>
+
+            <p id="maintMsg" class="text-slate-400 leading-relaxed mb-10 text-sm md:text-base border-l-2 border-slate-800 pl-4">
+                Sistem sedang dalam perbaikan berkala. Silakan kembali lagi nanti.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button onclick="window.location.href='../index.html'" class="btn-outline px-6 py-3 rounded text-sm font-bold mono flex items-center justify-center gap-3 flex-1">
+                    <i class="fas fa-arrow-left text-[10px]"></i>
+                    <span id="maintBtnText">KEMBALI</span>
+                </button>
+
+                <div class="flex items-center gap-3 px-4 py-3 border border-dashed border-slate-800 rounded bg-slate-900/50">
+                    <i class="fas fa-cog engine-rotate text-slate-600"></i>
+                    <span id="maintVersion" class="mono text-[10px] text-slate-500">SYS_V1.0</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-6 flex justify-between items-center px-2">
+            <span class="mono text-[9px] text-slate-600 tracking-widest uppercase">SECURE CONNECTION ESTABLISHED</span>
+            <div class="h-[1px] flex-1 bg-slate-900 mx-4"></div>
+            <div class="flex gap-3 text-slate-600 text-xs">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof CONFIG === 'undefined') {
+                console.error("Config not found!");
+                return;
+            }
+
+            const sys = CONFIG.maintenanceConfig;
+
+            if (!sys || !sys.active) {
+                console.log("Maintenance Inactive. Redirecting Home...");
+                window.location.href = "../index.html";
+                return;
+            }
+
+            if(sys.title) document.getElementById('maintTitle').innerHTML = sys.title.replace(/\n/g, '<br>');
+            if(sys.message) document.getElementById('maintMsg').innerText = sys.message;
+            if(sys.buttonText) document.getElementById('maintBtnText').innerText = sys.buttonText;
+            if(sys.versionText) document.getElementById('maintVersion').innerText = sys.versionText;
+
+            document.querySelector('.glass-panel').animate([
+                { opacity: 0, transform: 'translateY(20px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+            ], { duration: 600, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' });
+        });
+    </script>
+
+</body>
+</html>

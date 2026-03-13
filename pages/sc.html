@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#020617">
+
+    <title>Database Script - AwangXoffc ID</title>
+    <meta name="description" content="Koleksi Script Bot WhatsApp Terbaru & Gratis. Fitur lengkap, anti-error, dan update rutin. Download sekarang di AwangXoffc ID.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awangjs.web.id/pages/sc.html">
+    <meta property="og:title" content="Database Script - AwangXoffc ID">
+    <meta property="og:description" content="Koleksi Script Bot WhatsApp Terbaru & Gratis. Fitur lengkap, anti-error, dan update rutin. Download sekarang di AwangXoffc ID.">
+    <meta property="og:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Database Script - AwangXoffc ID">
+    <meta name="twitter:description" content="Koleksi Script Bot WhatsApp Terbaru & Gratis. Fitur lengkap, anti-error, dan update rutin. Download sekarang di AwangXoffc ID.">
+    <meta name="twitter:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="../config/config.js"></script>
+
+    <script>
+        if (typeof CONFIG !== 'undefined' && CONFIG.maintenanceConfig && CONFIG.maintenanceConfig.active) {
+            if (CONFIG.maintenanceConfig.pages && CONFIG.maintenanceConfig.pages.sc) {
+                window.location.href = "maintenance.html";
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stylesc.css">
+
+    <style>
+        .sc-container {
+            width: 92%;
+            max-width: 1200px;
+            padding: 0;
+            margin: 0 auto;
+        }
+        .pixel-font { font-family: 'Press Start 2P', cursive; }
+        .tab-btn { white-space: nowrap; transition: all 0.2s; }
+        .tab-btn.active { box-shadow: 0 4px 10px rgba(96, 165, 250, 0.2); }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-200 font-sans antialiased" oncontextmenu="return false;">
+
+    <div id="customBg" class="fixed inset-0 bg-cover bg-center bg-no-repeat z-[-2]"></div>
+    <div class="fixed inset-0 bg-[#020617]/70 z-[-1] backdrop-blur-[1px]"></div>
+    <div class="overlay fixed inset-0 bg-black/80 z-[60] hidden" id="overlay" onclick="toggleMenu()"></div>
+
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-72 bg-[#020617] border-r border-[#1e293b] z-[70] transform -translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <div class="p-8 border-b border-[#1e293b] text-center">
+            <span class="pixel-font text-[10px] text-[#60a5fa] uppercase tracking-widest">AWANG OFFICIAL</span>
+        </div>
+        <div id="sidebarContent" class="py-4 px-2 overflow-y-auto custom-scrollbar flex-1"></div>
+    </aside>
+
+    <main class="min-h-screen flex flex-col pb-24 relative w-full transition-all duration-300">
+
+        <nav class="sticky top-0 z-50 bg-[#020617]/90 backdrop-blur-md border-b border-[#1e293b] h-16 w-full shadow-lg">
+            <div class="w-full px-4 h-full flex justify-between items-center max-w-[1200px] mx-auto">
+                <button onclick="toggleMenu(); playSfx('pop')" class="w-10 h-10 flex items-center justify-center bg-[#1e293b]/50 rounded-xl text-[#60a5fa] border border-[#334155] active:scale-95 transition-transform hover:bg-[#334155]">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="font-black text-xs tracking-[0.2em] text-[#f8fafc] flex items-center gap-2 uppercase">
+                    <i class="fas fa-database text-[#60a5fa]"></i> <span id="pageTitleDisplay">DATABASE</span>
+                </div>
+                <a href="../index.html" onclick="playSfx('pop')" class="w-10 h-10 flex items-center justify-center bg-[#1e293b]/50 rounded-xl text-gray-400 hover:text-white border border-[#334155] active:scale-95 transition-transform hover:bg-[#334155]">
+                    <i class="fas fa-home"></i>
+                </a>
+            </div>
+        </nav>
+
+        <div class="w-full pt-8 flex-1 sc-container">
+
+            <div class="sc-hero-wrapper animate-fade-in-up">
+                <div class="text-center mb-6">
+                    <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-4">
+                        <i class="fas fa-rocket mr-2"></i> Update Setiap Hari
+                    </div>
+                    <h1 class="font-black text-2xl md:text-4xl text-white mb-4 tracking-tight drop-shadow-lg">
+                        Awang <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">OfficiaL</span>
+                    </h1>
+                    <p id="pageSubtitleDisplay" class="text-slate-400 text-xs md:text-sm max-w-xl mx-auto leading-relaxed">
+                        Koleksi Script Bot WhatsApp Terbaru & Gratis.
+                    </p>
+                </div>
+
+                <div class="relative max-w-2xl mx-auto group">
+                    <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-slate-500 group-focus-within:text-blue-400 transition-colors text-lg"></i>
+                    </div>
+                    <input type="text" id="scriptSearch"
+                           class="sc-search-glass w-full text-white text-sm md:text-base rounded-2xl pl-14 pr-4 py-4 outline-none placeholder-slate-500 font-medium"
+                           placeholder="Cari script (misal: panel, cpanel, store)..."
+                           onkeyup="filterScripts()">
+                    <div class="absolute inset-y-0 right-2 flex items-center pr-2">
+                        <div class="px-3 py-1.5 bg-slate-800/80 rounded-xl text-[9px] text-slate-400 font-bold uppercase tracking-widest border border-slate-700 shadow-inner hidden sm:block">
+                            SMART SEARCH
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 justify-center items-center pb-6 mb-2 w-full">
+                <button class="tab-btn active px-5 py-2 rounded-full text-[10px] font-black bg-[#1e3a8a] text-[#60a5fa] border border-[#60a5fa] transition-colors uppercase tracking-wider" onclick="applyScFilter('all')">Semua</button>
+                <button class="tab-btn px-5 py-2 rounded-full text-[10px] font-black text-gray-400 border border-[#334155] bg-[#0f172a]/80 hover:text-white hover:border-gray-500 transition-colors uppercase tracking-wider" onclick="applyScFilter('new')">Baru</button>
+                <button class="tab-btn px-5 py-2 rounded-full text-[10px] font-black text-gray-400 border border-[#334155] bg-[#0f172a]/80 hover:text-white hover:border-gray-500 transition-colors uppercase tracking-wider" onclick="applyScFilter('update')">Update</button>
+                <button class="tab-btn px-5 py-2 rounded-full text-[10px] font-black text-gray-400 border border-[#334155] bg-[#0f172a]/80 hover:text-white hover:border-gray-500 transition-colors uppercase tracking-wider" onclick="applyScFilter('popular')">Populer</button>
+                <button class="tab-btn px-5 py-2 rounded-full text-[10px] font-black text-gray-400 border border-[#334155] bg-[#0f172a]/80 hover:text-white hover:border-gray-500 transition-colors uppercase tracking-wider" onclick="applyScFilter('error')">Error</button>
+            </div>
+
+            <div id="scriptList" class="pb-10 w-full">
+                <div class="w-full h-40 bg-[#1e293b] rounded-2xl animate-pulse mb-4"></div>
+                <div class="w-full h-40 bg-[#1e293b] rounded-2xl animate-pulse"></div>
+            </div>
+
+            <div id="scPaginationBtn" class="w-full flex justify-center mt-4 mb-8"></div>
+
+        </div>
+
+        <footer id="mainFooter" class="mt-auto border-t border-[#1e293b] bg-[#020617]/90 backdrop-blur-md pt-8 pb-8"></footer>
+    </main>
+
+    <div id="notifModal" class="fixed inset-0 z-[3000] flex items-center justify-center p-6 bg-black/80 hidden backdrop-blur-sm">
+        <div class="bg-[#0f172a] w-full max-w-sm rounded-2xl border border-[#334155] p-5 shadow-2xl">
+            <h3 class="text-white font-black text-xs uppercase mb-3 border-l-4 border-[#60a5fa] pl-3">Notifikasi</h3>
+            <div id="notifContent" class="text-xs text-gray-400 leading-relaxed mb-4"></div>
+            <button onclick="toggleNotifModal()" class="w-full py-3 bg-[#1e293b] hover:bg-[#334155] border border-[#334155] rounded-xl text-[#60a5fa] text-[10px] font-black uppercase tracking-widest transition-all">Tutup</button>
+        </div>
+    </div>
+
+    <div id="footerPageModal" class="f-modal">
+        <div class="f-modal-content">
+            <h2 id="fPageTitle" class="pixel-font text-[#60a5fa] text-xs mb-6 uppercase">Title</h2>
+            <div id="fPageContent" class="text-[#94a3b8] text-xs leading-relaxed max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar"></div>
+            <button onclick="closeFooterModal(); playSfx('pop')" class="w-full mt-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest text-white hover:bg-white/10 transition-colors btn-3d">Tutup</button>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script type="module" src="../js/awang1.js"></script>
+    <script type="module" src="../js/awang2.js"></script>
+    <script type="module" src="../js/script_sc.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const bgEl = document.getElementById('customBg');
+            if(bgEl) bgEl.style.backgroundImage = `url('../assets/images/background.jpg')`;
+
+            if (typeof CONFIG !== 'undefined' && CONFIG.scriptPageConfig) {
+                const pTitle = document.getElementById('pageTitleDisplay');
+                const pSub = document.getElementById('pageSubtitleDisplay');
+                if(pTitle) pTitle.innerText = CONFIG.scriptPageConfig.pageTitle || "DATABASE";
+                if(pSub && pSub.id !== "pageSubtitleDisplay") pSub.innerText = CONFIG.scriptPageConfig.pageSubtitle || "Collection";
+                if(CONFIG.scriptPageConfig.searchPlaceholder) document.getElementById('scriptSearch').placeholder = CONFIG.scriptPageConfig.searchPlaceholder;
+            }
+        });
+    </script>
+</body>
+</html>

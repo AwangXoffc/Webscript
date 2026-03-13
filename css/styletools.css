@@ -1,0 +1,627 @@
+/* =========================================
+   FILE: css/styletools.css
+   ========================================= */
+
+/* =========================================
+   ANIMATED CYBER BACKGROUND
+   ========================================= */
+body {
+    background-color: #020617;
+    background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center 0;
+    animation: cyberGridMove 15s linear infinite;
+}
+
+@keyframes cyberGridMove {
+    0% { 
+        background-position: center 0; 
+    }
+    100% { 
+        background-position: center 50px; 
+    }
+}
+
+.vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(circle at center, transparent 20%, #020617 100%);
+}
+
+/* =========================================
+   LAYOUT UTAMA (DIPERLEBAR)
+   ========================================= */
+.tools-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    justify-content: center;
+    padding: 24px 16px;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+/* =========================================
+   WELCOME SCREEN (TERMINAL LOOK)
+   ========================================= */
+#welcomeState {
+    width: 100%;
+    animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.terminal-box {
+    border: 2px solid #334155;
+    background: #0f172a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+}
+
+.terminal-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.term-header {
+    background: #1e293b;
+    padding: 12px 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-bottom: 2px solid #334155;
+}
+
+.dot { 
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+}
+
+.bg-red { 
+    background: #ef4444; 
+    border: 1px solid #991b1b; 
+}
+
+.bg-yellow { 
+    background: #fbbf24; 
+    border: 1px solid #92400e; 
+}
+
+.bg-green { 
+    background: #22c55e; 
+    border: 1px solid #166534; 
+}
+
+.term-body {
+    padding: 40px 20px;
+    font-family: 'Fira Code', monospace;
+    text-align: center;
+}
+
+.sys-text {
+    color: #60a5fa;
+    font-size: 10px;
+    margin-bottom: 15px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.cmd-text {
+    color: #f8fafc;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.blink { 
+    animation: blink 1s infinite; 
+}
+
+.start-btn {
+    background: #1e3a8a;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    border: 2px solid #3b82f6;
+    box-shadow: 4px 4px 0px rgba(59, 130, 246, 0.4);
+}
+
+.start-btn:hover {
+    background: #2563eb;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(59, 130, 246, 0.5);
+}
+
+.start-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px rgba(59, 130, 246, 0.5);
+}
+
+/* =========================================
+   FEATURE GRID
+   ========================================= */
+.features-grid-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .features-grid-box { 
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+
+.feat-item {
+    background: #1e293b;
+    border: 2px solid #334155;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.feat-item:hover {
+    background: #0f172a;
+    border-color: #60a5fa;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(96,165,250,0.3);
+}
+
+.feat-item:hover i { 
+    color: white; 
+}
+
+.feat-item:hover h5 { 
+    color: white; 
+}
+
+.feat-item:hover span { 
+    color: white; 
+}
+
+.feat-item i { 
+    font-size: 20px; 
+    color: #60a5fa; 
+    margin-bottom: 8px; 
+    transition: 0.2s; 
+}
+
+.feat-item h5 { 
+    font-size: 10px; 
+    font-weight: 900; 
+    color: #f8fafc; 
+    text-transform: uppercase; 
+    margin-bottom: 2px; 
+    transition: 0.2s; 
+}
+
+.feat-item span { 
+    font-size: 8px; 
+    color: #94a3b8; 
+    font-weight: 600; 
+    transition: 0.2s; 
+}
+
+/* =========================================
+   ACTIVE TOOL UI (LEBAR PENUH)
+   ========================================= */
+#toolState {
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+    animation: slideUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.active-tool-badge {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.badge-pill {
+    background: #0f172a;
+    border: 2px solid #60a5fa;
+    color: #60a5fa;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.input-box {
+    position: relative;
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 16px;
+    padding: 8px;
+    display: flex;
+    transition: 0.3s;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+    width: 100%;
+}
+
+.input-box:focus-within {
+    border-color: #60a5fa;
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px rgba(96,165,250,0.2);
+}
+
+.url-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    outline: none;
+    width: 100%;
+}
+
+.go-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: #60a5fa;
+    color: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.1s;
+    flex-shrink: 0;
+    border: 2px solid #1d4ed8;
+    box-shadow: inset -2px -2px 0px rgba(0,0,0,0.2);
+}
+
+.go-btn:active {
+    transform: scale(0.9);
+    box-shadow: inset 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   RESULT CARD (PAS & MELEBAR)
+   ========================================= */
+.lux-result-card {
+    display: none;
+    margin-top: 40px;
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.5);
+    animation: fadeIn 0.5s ease;
+    width: 100%;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    background: #020617;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #334155;
+}
+
+video {
+    max-height: 450px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.card-badge-top {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #22c55e;
+    color: #020617;
+    font-size: 9px;
+    font-weight: 900;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    border: 2px solid #064e3b;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+.info-wrapper {
+    padding: 24px 20px;
+    position: relative;
+    width: 100%;
+}
+
+.info-header-box {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.author-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #1e293b;
+    border: 2px solid #60a5fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #60a5fa;
+    flex-shrink: 0;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.author-avatar img.hidden {
+    display: none;
+}
+
+.author-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.res-title-text {
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.res-author-text {
+    font-size: 11px;
+    color: #60a5fa;
+    font-family: 'Fira Code', monospace;
+    margin-top: 4px;
+    font-weight: 800;
+}
+
+/* Kotak Deskripsi */
+.res-desc-text {
+    font-size: 12px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    background: #1e293b;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 2px solid #334155;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.2);
+    width: 100%;
+    word-break: break-word;
+}
+
+/* Statistik Row */
+.res-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.res-stat {
+    background: #0f172a;
+    border: 2px solid #334155;
+    padding: 12px 5px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
+}
+
+.res-stat i { 
+    font-size: 18px; 
+}
+
+.dl-divider {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 900;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.dl-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20%;
+    height: 2px;
+    background: #334155;
+    left: 0;
+}
+
+.dl-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20%;
+    height: 2px;
+    background: #334155;
+    right: 0;
+}
+
+.dl-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.dl-block {
+    background: #1e293b;
+    border: 2px solid #334155;
+    padding: 14px 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.dl-block:hover {
+    border-color: #60a5fa;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
+    background: #0f172a;
+}
+
+.dl-block:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
+}
+
+.dl-label {
+    font-size: 11px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dl-icon {
+    width: 36px;
+    height: 36px;
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #60a5fa;
+    transition: 0.2s;
+    box-shadow: inset 2px 2px 0px rgba(0,0,0,0.3);
+}
+
+.dl-block:hover .dl-icon {
+    background: #2563eb;
+    color: white;
+    border-color: #1d4ed8;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.simple-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+    border-top: 1px solid #1e293b;
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.sf-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.sf-text:hover { 
+    color: #60a5fa; 
+}
+
+@keyframes blink { 
+    50% { 
+        opacity: 0; 
+    } 
+}
+
+@keyframes slideUp { 
+    from { 
+        transform: translateY(30px); 
+        opacity: 0; 
+    } 
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    } 
+}
+
+@keyframes fadeIn { 
+    from { 
+        opacity: 0; 
+    } 
+    to { 
+        opacity: 1; 
+    } 
+}

@@ -1,0 +1,120 @@
+/* =========================================
+   FILE: css/stylehelp.css
+   ========================================= */
+
+/* =========================================
+   TOMBOL KATEGORI
+   ========================================= */
+.cat-btn {
+    background: #020617;
+    border: 1px solid #1e293b;
+    color: #64748b;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cat-btn:hover {
+    background: #1e293b;
+    color: #f8fafc;
+    border-color: #475569;
+    transform: translateY(-2px);
+}
+
+.cat-btn.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+    transform: translateY(-1px);
+}
+
+.cat-btn i {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+/* =========================================
+   FORM INPUT & TEXTAREA
+   ========================================= */
+input {
+    transition: all 0.2s ease-in-out;
+}
+
+textarea {
+    transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+    background-color: #020617 !important;
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+textarea:focus {
+    background-color: #020617 !important;
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+input::placeholder {
+    color: #475569;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+textarea::placeholder {
+    color: #475569;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR
+   ========================================= */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* =========================================
+   ANIMASI
+   ========================================= */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: slideInUp 0.5s ease-out forwards;
+}

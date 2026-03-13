@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#020617">
+    <title>Media Tools - AwangXoffc</title>
+
+    <meta name="description" content="Downloader media super cepat tanpa watermark. Dukungan untuk TikTok, Instagram, YouTube, dan lainnya.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awangjs.web.id/pages/tools.html">
+    <meta property="og:title" content="Media Tools - AwangXoffc">
+    <meta property="og:description" content="Downloader media super cepat tanpa watermark. Dukungan untuk TikTok, Instagram, YouTube, dan lainnya.">
+    <meta property="og:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Media Tools - AwangXoffc">
+    <meta name="twitter:description" content="Downloader media super cepat tanpa watermark. Dukungan untuk TikTok, Instagram, YouTube, dan lainnya.">
+    <meta name="twitter:image" content="https://awangjs.web.id/assets/images/profile.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="../config/config.js"></script>
+    <script src="../config/config_downloader.js"></script>
+
+    <script>
+        if (typeof CONFIG !== 'undefined' && CONFIG.maintenanceConfig && CONFIG.maintenanceConfig.active) {
+            if (CONFIG.maintenanceConfig.pages && CONFIG.maintenanceConfig.pages.tools) {
+                window.location.href = "maintenance.html";
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styletools.css">
+</head>
+<body class="antialiased">
+
+    <div class="vignette"></div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-72 bg-[#020617] border-r border-[#1e293b] z-[70] transform -translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <div class="p-8 border-b border-[#1e293b] text-center bg-[#020617]">
+            <span class="pixel-font text-[10px] text-[#60a5fa] uppercase tracking-widest">AWANG SYSTEM</span>
+        </div>
+        <div id="sidebarContent" class="py-4 overflow-y-auto custom-scrollbar flex-1 bg-[#020617]"></div>
+    </aside>
+
+    <main class="min-h-screen flex flex-col relative w-full transition-all duration-300">
+
+        <nav class="sticky top-0 z-50 bg-[#020617]/80 backdrop-blur-md border-b border-[#1e293b] h-16 w-full shadow-lg">
+            <div class="w-full px-4 h-full flex justify-between items-center">
+                <button onclick="toggleMenu(); playSfx('pop')" class="w-10 h-10 flex items-center justify-center bg-[#1e293b]/50 rounded-xl text-[#60a5fa] border border-[#334155] active:scale-95 transition-transform hover:bg-[#334155]">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="font-black text-xs tracking-[0.2em] text-[#f8fafc] flex items-center gap-2 uppercase">
+                    <i class="fas fa-bolt text-[#60a5fa]"></i> CORE TOOLS
+                </div>
+                <a href="../index.html" class="w-10 h-10 flex items-center justify-center bg-[#1e293b]/50 rounded-xl text-gray-400 border border-[#334155] active:scale-95 transition-transform hover:bg-[#334155] hover:text-white">
+                    <i class="fas fa-home"></i>
+                </a>
+            </div>
+        </nav>
+
+        <div class="tools-container flex-1">
+
+            <div id="welcomeState">
+                <div class="terminal-box">
+                    <div class="term-header">
+                        <div class="dot bg-red"></div>
+                        <div class="dot bg-yellow"></div>
+                        <div class="dot bg-green"></div>
+                        <div class="ml-auto text-[9px] text-slate-500 font-mono">root@awang-server:~</div>
+                    </div>
+                    <div class="term-body">
+                        <span class="sys-text">Initializing Secure Protocol... Connected.</span>
+                        <h1 class="cmd-text">> MEDIA_SAVER_PRO_V6<span class="blink">_</span></h1>
+                        <p class="text-[11px] text-slate-400 mb-8 max-w-md mx-auto leading-relaxed">
+                            Sistem Ultimate Scraper cerdas siap menerima perintah. Silakan buka menu sidebar untuk memilih modul download.
+                        </p>
+                        <button onclick="toggleMenu(); playSfx('pop')" class="start-btn">
+                            <i class="fas fa-terminal"></i> BUKA MENU TOOLS
+                        </button>
+                    </div>
+                </div>
+
+                <div class="features-grid-box">
+                    <div class="feat-item">
+                        <i class="fas fa-bolt"></i>
+                        <h5>Super Cepat</h5>
+                        <span>Premium Speed</span>
+                    </div>
+                    <div class="feat-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h5>Auto Extract</h5>
+                        <span>Smart Engine</span>
+                    </div>
+                    <div class="feat-item">
+                        <i class="fas fa-video"></i>
+                        <h5>HD Quality</h5>
+                        <span>Resolusi Tinggi</span>
+                    </div>
+                    <div class="feat-item">
+                        <i class="fas fa-infinity"></i>
+                        <h5>Tanpa Limit</h5>
+                        <span>Bebas Akses</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="toolState">
+                <div class="active-tool-badge">
+                    <span id="activeBadgeText" class="badge-pill">TIKTOK DOWNLOADER</span>
+                </div>
+
+                <div class="input-box group">
+                    <input type="text" id="urlInput" class="url-input" placeholder="Tempel Link Video...">
+                    <button id="processBtn" onclick="processUrl()" class="go-btn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="text-center mt-3">
+                    <span id="statusText" class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">READY TO PROCESS</span>
+                </div>
+
+                <div id="resultCard" class="lux-result-card hidden-card">
+                    <div class="video-wrapper">
+                        <video id="resVideo" controls class="hidden"></video>
+                        <img id="resThumb" src="" class="w-full h-full object-cover opacity-50">
+                        <div id="playOverlay" class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-play-circle text-6xl text-white/70 drop-shadow-lg"></i>
+                        </div>
+                        <div class="card-badge-top" id="resBadge"><i class="fas fa-check-circle"></i> DATA FOUND</div>
+                    </div>
+
+                    <div class="info-wrapper">
+                        <div class="info-header-box">
+                            <div class="author-row">
+                                <div class="author-avatar" id="authorAvatarBox">
+                                    <img id="resAvatarImg" src="" alt="Profile" class="hidden w-full h-full rounded-full object-cover">
+                                    <i id="resAvatarIcon" class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="author-details">
+                                    <h3 id="resTitle" class="res-title-text">Video Title</h3>
+                                    <p id="resAuthor" class="res-author-text">@Author</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p id="resDesc" class="res-desc-text">Memuat deskripsi...</p>
+
+                        <div class="res-stats-row">
+                            <div class="res-stat"><i class="fas fa-heart text-pink-500"></i> <span id="statLikes">0</span></div>
+                            <div class="res-stat"><i class="fas fa-comment text-blue-400"></i> <span id="statComments">0</span></div>
+                            <div class="res-stat"><i class="fas fa-share text-green-400"></i> <span id="statShares">0</span></div>
+                        </div>
+
+                        <div class="dl-divider">PILIH OPSI DOWNLOAD</div>
+
+                        <div id="downloadLinks" class="dl-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer id="simpleFooter" class="simple-footer">
+            <p class="sf-text">COPYRIGHT © 2026 AWANG OFFICIAL</p>
+        </footer>
+    </main>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/script_tools.js"></script>
+
+    <script>
+        const bgEl = document.getElementById('customBg');
+        if(bgEl) bgEl.style.display = 'none';
+    </script>
+</body>
+</html>
